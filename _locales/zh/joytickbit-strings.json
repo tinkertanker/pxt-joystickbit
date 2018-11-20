@@ -1,0 +1,17 @@
+{
+    "joystickbit|block": "游戏手柄",
+    "joystickbit.JoystickBitPin.P12|block": "C",
+    "joystickbit.JoystickBitPin.P13|block": "D",
+    "joystickbit.JoystickBitPin.P14|block": "E",
+    "joystickbit.JoystickBitPin.P15|block": "F",
+    "joystickbit.rockerType.X|block": "X轴",
+    "joystickbit.rockerType.Y|block": "Y轴",
+    "joystickbit.ButtonType.down|block": "按下",
+    "joystickbit.ButtonType.up|block": "松开",
+    "joystickbit.initJoystickBit|block":"初始化手柄",
+    "joystickbit.getButton|block":"按键 %button 被按下",
+    "joystickbit.onButtonEvent|block":"当按键 %button| %event",
+    "joystickbit.getRockerValue|block":"摇杆 %rocker 的值",
+    "joystickbit.Vibration_Motor|block":"震动 %time 毫秒"
+    
+}
