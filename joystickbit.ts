@@ -41,6 +41,7 @@ namespace joystickbit {
     */
     //% blockId=initJoystickBit block="initialization joystick:bit"
     export function initJoystickBit(): void {
+        pins.digitalWritePin(DigitalPin.P0, 0)
         pins.setPull(DigitalPin.P12, PinPullMode.PullUp)
         pins.setPull(DigitalPin.P13, PinPullMode.PullUp)
         pins.setPull(DigitalPin.P14, PinPullMode.PullUp)
