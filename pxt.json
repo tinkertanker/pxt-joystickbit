@@ -1,0 +1,19 @@
+{
+    "name": "joystickbit",
+    "version": "1.0.0",
+    "description": "ELECFREAKS joystick:bit package",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "joystickbit.ts",
+        "_locales/zh/joystickbit-strings.json"
+    ],
+    "testFiles": [
+        "tests.ts"
+    ],
+    "public": true,
+    "installedVersion": "github:elecfreaks/pxt-joystickbit#v1.0.0"
+}
