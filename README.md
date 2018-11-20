@@ -10,22 +10,24 @@ This ELECFREAKS joytick:bit  Package was developed by [ELECFREAKS](https://www.e
 
 ## Code Example
 ```JavaScript
-gamebit.onButtonEvent(GameBitPin.P13, ButtonType.down, function () {
-    gamebit.Vibration_Motor(100)
+joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P12, joystickbit.ButtonType.down, function () {
+    basic.showString("C")
 })
-gamebit.onButtonEvent(GameBitPin.P12, ButtonType.down, function () {
-    gamebit.Vibration_Motor(100)
+joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P15, joystickbit.ButtonType.down, function () {
+    basic.showString("F")
 })
-gamebit.onButtonEvent(GameBitPin.P14, ButtonType.down, function () {
-    gamebit.Vibration_Motor(100)
+joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P13, joystickbit.ButtonType.down, function () {
+    basic.showString("D")
 })
-gamebit.onButtonEvent(GameBitPin.P15, ButtonType.down, function () {
-    gamebit.Vibration_Motor(100)
+joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P14, joystickbit.ButtonType.down, function () {
+    basic.showString("E")
 })
-gamebit.initGamebit()
-music.beginMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
+joystickbit.initJoystickBit()
+joystickbit.Vibration_Motor(100)
+basic.forever(function () {
+	
+})
 
-})
 
 
 ```
