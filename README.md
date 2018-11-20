@@ -1,5 +1,5 @@
 # joytick:bit Package
-This ElecFreaks joytick:bit  Package was developed by [ElecFreaks](https://www.elecfreaks.com/) with minor assistance from [Tinkercademy](https://tinkercademy.com/).
+This ELECFREAKS joytick:bit  Package was developed by [ELECFREAKS](https://www.elecfreaks.com/) with minor assistance from [Tinkercademy](https://tinkercademy.com/).
 
 ![](https://github.com/elecfreaks/pxt-joystickbit/blob/master/icon.png)
 
