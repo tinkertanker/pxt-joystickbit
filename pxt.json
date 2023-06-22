@@ -9,7 +9,8 @@
     "files": [
         "README.md",
         "joystickbit.ts",
-        "_locales/zh/joystickbit-strings.json"
+        "_locales/zh/joystickbit-strings.json",
+        "_locales/fr/joystickbit-strings.json"
     ],
     "testFiles": [
         "tests.ts"
