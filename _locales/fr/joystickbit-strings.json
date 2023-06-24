@@ -1,0 +1,17 @@
+{
+  "joystickbit.ButtonType.down|block": "pressé",
+  "joystickbit.ButtonType.up|block": "relâché",
+  "joystickbit.JoystickBitPin.P12|block": "C",
+  "joystickbit.JoystickBitPin.P13|block": "D",
+  "joystickbit.JoystickBitPin.P14|block": "E",
+  "joystickbit.JoystickBitPin.P15|block": "F",
+  "joystickbit.Vibration_Motor|block": "vibrer le moteur pour %time ms",
+  "joystickbit.getButton|block": "bouton %button est pressé",
+  "joystickbit.getRockerValue|block": "valeur du rockeur %rocker",
+  "joystickbit.initJoystickBit|block": "initialisation joystick:bit",
+  "joystickbit.onButtonEvent|block": "quand le bouton %button|est %event",
+  "joystickbit.rockerType.X|block": "X",
+  "joystickbit.rockerType.Y|block": "Y",
+  "joystickbit|block": "Joystickbit",
+  "{id:category}Joystickbit": "Joystickbit"
+}
