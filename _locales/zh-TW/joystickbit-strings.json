@@ -1,0 +1,16 @@
+{
+    "joystickbit.rockerType.Y|block": "Y軸",
+    "joystickbit.JoystickBitPin.P14|block": "E",
+    "joystickbit.JoystickBitPin.P15|block": "F",
+    "joystickbit.ButtonType.down|block": "按下",
+    "joystickbit.onButtonEvent|block": "當按鍵 %button| %event",
+    "joystickbit.getButton|block": "按鍵 %button 被按下",
+    "joystickbit.JoystickBitPin.P13|block": "D",
+    "joystickbit.rockerType.X|block": "X軸",
+    "joystickbit.initJoystickBit|block": "初始化手把",
+    "joystickbit.JoystickBitPin.P12|block": "C",
+    "joystickbit.getRockerValue|block": "搖桿 %rocker 的值",
+    "joystickbit.Vibration_Motor|block": "震動 %time 毫秒",
+    "joystickbit|block": "遊戲手把",
+    "joystickbit.ButtonType.up|block": "鬆開"
+}
