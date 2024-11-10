@@ -1,0 +1,10 @@
+{
+    "joystickbit": "Bezdrátově ovládej své výtvory pomocí joystick:bit.",
+    "joystickbit.Vibration_Motor": "Zapne vibrační motor na zvolenou dobu.",
+    "joystickbit.Vibration_Motor|param|time": "Doba zapnutí vibračního motoru v ms, např. 100.",
+    "joystickbit.getButton": "Zjistí, zda je zvolené tlačítko stisknuto.",
+    "joystickbit.getRockerValue": "Zjistí polohu levé páčky na zvolené ose.",
+    "joystickbit.getRockerValue|param|rocker": "Osa levé páčky, např. X.",
+    "joystickbit.initJoystickBit": "Inicializuje joystick:bit.",
+    "joystickbit.onButtonEvent": "Spustí se při zaznamenání joystick:bit události."
+}
