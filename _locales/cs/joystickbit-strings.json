@@ -1,0 +1,17 @@
+{
+  "joystickbit.ButtonType.down|block": "stisknuto",
+  "joystickbit.ButtonType.up|block": "uvolněno",
+  "joystickbit.JoystickBitPin.P12|block": "C",
+  "joystickbit.JoystickBitPin.P13|block": "D",
+  "joystickbit.JoystickBitPin.P14|block": "E",
+  "joystickbit.JoystickBitPin.P15|block": "F",
+  "joystickbit.Vibration_Motor|block": "vibruj po dobu %time ms",
+  "joystickbit.getButton|block": "je tlačítko %button(C) stisknuto",
+  "joystickbit.getRockerValue|block": "poloha levé páčky na ose %rocker(X)",
+  "joystickbit.initJoystickBit|block": "inicializuj joystick:bit",
+  "joystickbit.onButtonEvent|block": "tlačíko %button(C)| je %event(stisknuto)",
+  "joystickbit.rockerType.X|block": "X",
+  "joystickbit.rockerType.Y|block": "Y",
+  "joystickbit|block": "Joystickbit",
+  "{id:category}Joystickbit": "Joystickbit"
+}

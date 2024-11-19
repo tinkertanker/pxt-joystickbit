@@ -70,8 +70,8 @@ namespace joystickbit {
 
 
     /**
-    * get rocker value
-    * @param rocker describe parameter here, eg: 1
+    * Reads rocker value for the defined axis.
+    * @param rocker rocker axis to read
     */
     //% blockId=getRockerValue block="rocker value of %rocker"
     export function getRockerValue(rocker: rockerType): number {
@@ -106,4 +106,4 @@ namespace joystickbit {
 
 
 }
- 
+
