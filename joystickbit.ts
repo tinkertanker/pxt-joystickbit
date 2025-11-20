@@ -36,6 +36,19 @@ namespace joystickbit {
         up = PulseValue.Low
     }
 
+
+    // 全局变量用于轮询检测
+    let lastStableStates: { [key: number]: boolean } = {};
+    let currentStates: { [key: number]: boolean } = {};
+    let debounceCounters: { [key: number]: number } = {};
+    let buttonHandlers: { [key: string]: Action } = {};
+    let pollingStarted = false;
+    
+    // 防抖参数
+    const DEBOUNCE_THRESHOLD = 3; // 连续检测到相同状态的次数
+    const POLL_INTERVAL = 10; // 轮询间隔(ms)
+    
+
     /**
     * initialization joystick:bit
     */
@@ -47,7 +60,77 @@ namespace joystickbit {
         pins.setPull(DigitalPin.P14, PinPullMode.PullUp)
         pins.setPull(DigitalPin.P15, PinPullMode.PullUp)
         pins.digitalWritePin(DigitalPin.P16, 1)
+
+        // 初始化按钮状态
+        const buttons = [DigitalPin.P12, DigitalPin.P13, DigitalPin.P14, DigitalPin.P15];
+        for (let button of buttons) {
+            lastStableStates[button] = (pins.digitalReadPin(<number>button) == 0);
+            currentStates[button] = lastStableStates[button];
+            debounceCounters[button] = 0;
+        }
     }
+
+
+    /**
+    * 开始轮询检测
+    */
+    function startPolling(): void {
+        if (pollingStarted) return;
+        pollingStarted = true;
+        
+        control.inBackground(() => {
+            while (true) {
+                pollButtons();
+                basic.pause(POLL_INTERVAL);
+            }
+        });
+    }
+
+    /**
+    * 轮询检测按钮状态
+    */
+    function pollButtons(): void {
+        const buttons = [DigitalPin.P12, DigitalPin.P13, DigitalPin.P14, DigitalPin.P15];
+        
+        for (let button of buttons) {
+            // 读取当前物理状态
+            const physicalState = (pins.digitalReadPin(<number>button) == 0);
+            
+            // 更新当前状态
+            currentStates[button] = physicalState;
+            
+            // 检查状态是否与稳定状态不同
+            if (physicalState !== lastStableStates[button]) {
+                // 状态可能变化，增加计数器
+                debounceCounters[button]++;
+                
+                // 如果连续多次检测到新状态，确认状态变化
+                if (debounceCounters[button] >= DEBOUNCE_THRESHOLD) {
+                    // 确认状态变化
+                    const oldStableState = lastStableStates[button];
+                    lastStableStates[button] = physicalState;
+                    debounceCounters[button] = 0;
+                    
+                    // 触发相应的事件
+                    const eventType = physicalState ? ButtonType.down : ButtonType.up;
+                    const key = `${button}_${eventType}`;
+                    const handler = buttonHandlers[key];
+                    if (handler) {
+                        // 将handler放入后台队列执行，不阻塞当前轮询
+                        control.inBackground(() => {
+                            handler(); // 这个handler会在后台按顺序执行
+                        });
+                    }
+                }
+            } else {
+                // 状态与稳定状态相同，重置计数器
+                debounceCounters[button] = 0;
+            }
+        }
+    }
+
+
+
 
     /**
     * get Button
@@ -55,8 +138,8 @@ namespace joystickbit {
     //% blockId=getButton block="button %button is pressed"
     export function getButton(button: JoystickBitPin): boolean {
         return (pins.digitalReadPin(<number>button) == 0 ? true : false)
+        // return lastStableStates[<number>button]; // 返回稳定状态
     }
-
 
 
     /**
@@ -64,9 +147,13 @@ namespace joystickbit {
     */
     //% blockId=onButtonEvent block="on button %button|is %event" blockExternalInputs=false
     export function onButtonEvent(button: JoystickBitPin, event: ButtonType, handler: Action): void {
-        pins.onPulsed(<number>button, <number>event, handler);
+        const key = `${button}_${event}`;
+        buttonHandlers[key] = handler;
+        
+        // 确保轮询开始
+        startPolling();
     }
-
+    
 
 
     /**
@@ -106,4 +193,4 @@ namespace joystickbit {
 
 
 }
-
+ 
